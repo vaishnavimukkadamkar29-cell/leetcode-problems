@@ -2,7 +2,7 @@ class Solution {
     public boolean isGood(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
-        int max = Arrays.stream(nums).max().getAsInt();
+        int max = nums[n-1];
         HashSet<Integer> set = new HashSet<>();
         for(int num:nums)
         {
