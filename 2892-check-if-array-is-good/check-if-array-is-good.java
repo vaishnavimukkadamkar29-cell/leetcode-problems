@@ -23,10 +23,7 @@ class Solution {
         {
             return false;
         }
-        if(nums[0]!=1)
-        {
-            return false;
-        }
+       
         return true;
 
         
