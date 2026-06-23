@@ -1,19 +1,20 @@
 class Solution {
     public int firstUniqChar(String s) {
         int[] count = new int[26];
-        for(int i =0;i<s.length();i++)
-        {
-            count[s.charAt(i)-'a']++;
+        // Convert string to character array once to avoid function call overhead
+        char[] chars = s.toCharArray(); 
+        
+        for (char c : chars) {
+            count[c - 'a']++;
         }
-        for(int j =0;j<s.length();j++)
-        {
-            char currentchar=s.charAt(j);
-            if(count[currentchar-'a']==1)
-            {
+        
+        // Use a standard index loop to find the position
+        for (int j = 0; j < chars.length; j++) {
+            if (count[chars[j] - 'a'] == 1) {
                 return j;
             }
         }
-        return -1;
         
+        return -1;
     }
 }
