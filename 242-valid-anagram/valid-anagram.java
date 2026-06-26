@@ -5,21 +5,20 @@ class Solution {
             return false;
         }
         int[] freq = new int[26];
-        int[] freq1=new int[26];
         for(int i =0;i<s.length();i++)
         {
-            freq[t.charAt(i)-'a']++;
-            freq1[s.charAt(i)-'a']++;
+            freq[s.charAt(i)-'a']++;
+            freq[t.charAt(i)-'a']--;
         }
-        for(int i =0;i<26;i++)
+        for(int count:freq)
         {
-            if(freq[i]!=freq1[i])
+            if(count!=0)
             {
                 return false;
             }
         }
         return true;
-       
+        
 
         
     }
