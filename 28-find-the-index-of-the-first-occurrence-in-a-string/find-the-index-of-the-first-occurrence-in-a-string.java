@@ -5,7 +5,7 @@ class Solution {
         int small=needle.length();
         if(haystack.contains(needle))
         {
-            while(p1<haystack.length())
+            while(p1<=haystack.length()-small)
             {
                 String chunk=haystack.substring(p1,p1+small);
             if(haystack.charAt(p1)==needle.charAt(p2) && chunk.equals(needle) )
