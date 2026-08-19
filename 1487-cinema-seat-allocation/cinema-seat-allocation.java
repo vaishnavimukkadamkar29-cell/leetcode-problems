@@ -8,7 +8,8 @@ class Solution {
             map.putIfAbsent(row,new HashSet<>());
             map.get(row).add(col);
         }
-        int totalFamilies=2*n;
+        int emptyRows = n - map.size();
+        int totalFamilies = emptyRows * 2;
         for(int row:map.keySet())
         {
             Set<Integer> reserved=map.get(row);
@@ -17,14 +18,14 @@ class Solution {
             boolean middleFree=!reserved.contains(4)&&!reserved.contains(5)&&!reserved.contains(6)&&!reserved.contains(7);
             if(leftFree&&rightFree&&middleFree)
             {
-                continue;
+                totalFamilies+=2;
             }
             else if(leftFree||rightFree||middleFree)
             {
-                totalFamilies-=1;
+                totalFamilies+=1;
             }
             else{
-                totalFamilies-=2;
+                totalFamilies+=0;
             }
         }
         return totalFamilies;
