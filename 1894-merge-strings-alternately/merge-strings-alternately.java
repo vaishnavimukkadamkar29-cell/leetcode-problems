@@ -14,16 +14,25 @@ class Solution {
         i++;
         j++;
        }
-       while(i<n1)
+       int z=minlen;
+       if(maxlen>minlen)
        {
-        result.append(word1.charAt(i));
-        i++;
+       String maxword=" ";
+       if(n1>n2)
+       {
+        maxword=word1;
        }
-       while(j<n2)
+       else{
+        maxword=word2;
+       }
+       while(z<maxlen)
        {
-        result.append(word2.charAt(j));
-        j++;
+       result.append(maxword.charAt(z));
+       z++;
+       }
        }
        return result.toString();
+
+        
     }
 }
