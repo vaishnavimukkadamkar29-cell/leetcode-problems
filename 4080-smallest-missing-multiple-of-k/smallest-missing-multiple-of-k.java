@@ -1,22 +1,25 @@
+import java.util.Arrays;
+
 class Solution {
     public int missingMultiple(int[] nums, int k) {
-       HashSet<Integer> numsSet = new HashSet<>();
-       int ans=0;
-       for(int num:nums)
-       {
-        numsSet.add(num);
-       }
-       for(int i=k;i<Integer.MAX_VALUE;i+=k)
-       {
-        if(!numsSet.contains(i))
-        {
-            return i;
+        // 1. Sort the array so we can check numbers in order
+        Arrays.sort(nums);
+        
+        int targetMultiple = k;
+        
+        // 2. Scan through the sorted array
+        for (int num : nums) {
+            // If we find our target multiple, move to the next multiple
+            if (num == targetMultiple) {
+                targetMultiple += k;
+            }
+            // Optimization: If the array number is already bigger than our target,
+            // it means the target multiple was completely skipped/missing!
+            else if (num > targetMultiple) {
+                return targetMultiple;
+            }
         }
-       }
-       
-
-        return 0;
-       
-
+        
+        return targetMultiple;
     }
 }
