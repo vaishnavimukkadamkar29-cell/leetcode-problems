@@ -6,22 +6,16 @@ class Solution {
        {
         numsSet.add(num);
        }
-       if(!numsSet.contains(k))
-       {
-        ans= k;
-       }
-       else{
        for(int i=k;i<Integer.MAX_VALUE;i+=k)
        {
         if(!numsSet.contains(i))
         {
-            ans=i;
-            break;
+            return i;
         }
        }
-       }
+       
 
-        return ans;
+        return 0;
        
 
     }
