@@ -1,16 +1,17 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
-        if (n <= 0) {
+        if(n<=0)
+        {
             return false;
         }
-        int x = 0;
-        long product = 1;
-        while (product < n) {
-            product=(long)Math.pow(2,x);
-            x++;
-
+        if(n==1)
+        {
+            return true;
         }
-        return product==n;
-
+        if(n%2==0)
+        {
+            return isPowerOfTwo(n/2);
+        }
+        return false;
     }
 }
