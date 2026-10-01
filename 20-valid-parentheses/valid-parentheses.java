@@ -1,6 +1,6 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> stack= new Stack<>();
+        Stack<Character> stack=new Stack<>();
         int n=s.length();
         if(n%2!=0)
         {
@@ -13,14 +13,12 @@ class Solution {
                 stack.push(ch);
             }
             else{
-            if(stack.isEmpty())
-            {
-                return false;
-            }
+                if(stack.isEmpty())
+                {
+                    return false;
+                }
                 char top=stack.peek();
-                if((ch==')' && top=='(') || 
-                  (ch==']' && top=='[') || 
-                  (ch=='}' && top=='{'))
+                if((top=='(' && ch==')') || (top=='{' && ch=='}') || (top=='[' && ch==']'))
                 {
                     stack.pop();
                 }
@@ -29,7 +27,10 @@ class Solution {
                 }
             }
         }
-
-        return stack.isEmpty();
+        if(stack.isEmpty())
+        {
+            return true;
+        }
+        return false;
     }
 }
