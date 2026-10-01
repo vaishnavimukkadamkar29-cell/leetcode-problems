@@ -19,22 +19,24 @@ class Node {
 
 class Solution {
     public List<Integer> preorder(Node root) {
-        List<Integer> res=new ArrayList<>();
-        traverse(root,res);
+       List<Integer> res=new ArrayList<>();
+       if(root==null)
+       {
         return res;
-        
-    }
-    public void traverse(Node node,List<Integer> res)
-    {
-        if(node==null)
+       }
+       Stack<Node> stack=new Stack<>();
+       stack.push(root);
+       while(!stack.isEmpty())
+       {
+        Node curr=stack.pop();
+        res.add(curr.val);
+        List<Node> children=curr.children;
+        for(int i=children.size()-1;i>=0;i--)
         {
-            return;
+            stack.push(children.get(i));
         }
-        res.add(node.val);
 
-        for(Node child:node.children)
-        {
-            traverse(child,res);
-        }
+       }
+       return res;
     }
 }
