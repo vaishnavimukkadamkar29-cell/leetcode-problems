@@ -10,13 +10,13 @@ class Solution {
             }
         }
         int maxVowel=currentVowel;
-        for(int j =k;j<n;j++)
+        for(int i =k;i<n;i++)
         {
-            if(isVowel(s.charAt(j-k)))
+            if(isVowel(s.charAt(i-k)))
             {
                 currentVowel--;
             }
-            if(isVowel(s.charAt(j)))
+            if(isVowel(s.charAt(i)))
             {
                 currentVowel++;
             }
